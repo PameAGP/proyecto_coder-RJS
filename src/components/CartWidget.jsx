@@ -1,8 +1,11 @@
-import Carrito from '../assets/cart.svg'
+import Carrito from '../assets/carrito.png'
 
 export const CartWidget = () => {
     return(
-        <div>0</div>
-
+        <div>
+            <img src={Carrito} alt="carrito" class="carrito" />
+            <span>0</span>
+        </div>
+        
     )
 }
