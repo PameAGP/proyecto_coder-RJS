@@ -1,0 +1,52 @@
+{
+    "products": [
+        {
+            "id":1,
+            "title":"Cera pomada Cikonielf Styling",
+            "description":"La pomada mate para pelo Barber Style viene en presentación de 40 ml y funciona perfectamente en estilos clásicos, modernos, retro y antiguos para un aspecto que dura todo el día. Perfecta tanto para pelo corto como para pelo largo.",
+            "price": 300,
+            "category": "hombre",
+            "pictureUrl":"https://www.cdiscount.com/pdt2/8/0/7/1/700x700/cik7309587664807/rw/cikonielf-pommade-coiffante-60g-longue-duree-hydra.jpg"
+        },
+        {
+            "id":2,
+            "title":"Cera Pelo & Barba Capilatis Hombre",
+            "description":"Barba perfecta e impecable: cera de modelado para dar forma a distintos tipos de barba. Hidrata, suaviza y define los contornos manteniendo un aspecto natural. Ofrece fijación y estilo, minimizando el encrespamiento en barbas rebeldes. Peinados de larga duración: apta para todo tipo de cabellos, permite definir peinados con precisión y sostener estilos únicos con total control. Especialmente útil para hombres que desean pelo & barba imponentes, alineados y sin frizz.",
+            "price": 506,
+            "category": "hombre",
+            "pictureUrl":"https://http2.mlstatic.com/D_NQ_NP_2X_829015-MLU41018740930_032020-F.webp"
+        },
+        {
+            "id": 3,
+            "title": "Crema de peinar Pantene",
+            "description": "La crema de peinar Rizos Definidos de Pantene cuenta con el poder de la exclusiva fórmula Pro-V de Pantene y su nuevo envase te permite encontrar fácilmente el producto ideal para tu tipo de cabello.",
+            "price": 290,
+            "category": "mujer",
+            "pictureUrl":"https://tiendacdn.farmashop.com.uy/media/catalog/product/cache/c385976bc54d78dff661f3a8d562b253/3/0/30335_10_1.jpg"
+        },
+        {
+            "id": 4,
+            "title": "DR. SELBY – fijador para cabello",
+            "description": "Afianzá tu confianza alcanzando el look que buscabas para tu pelo.",
+            "price": 130,
+            "category": "hombre",
+            "pictureUrl":"https://www.selby.com.uy/wp-content/uploads/2021/12/fijador_120-510x508.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Gel fijador para niños Natura",
+            "description": "Gel para cabello elaborado a partir de productos de origen natural, dermatologicamente testeado, con activos vegetales, sin alchol y vegano.",
+            "price": 286,
+            "category": "nino",
+            "pictureUrl": "https://staticco.natura.com/cdn/ff/NSJBmrCWLqM6XQVQE8BIBf8GQHAh69pe9mf9l7y8K-M/1698824429/public/products/29968_1_16.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Crema para Peinar JOHNSON’S® Hidratación Intensa",
+            "description": "Ideal para obtener pelos suaves y con menos nudos, la Crema para Peinar JOHNSON'S® Hidratación Intensa deja el pelo hidratado y fácil de desenredar, gracias a su fórmula con 3 veces más agentes acondicionadores.",
+            "price": 450,
+            "category": "nino",
+            "pictureUrl": "https://www.johnsonsbaby.com.uy/sites/jbaby_uy_3/files/styles/jjbos_adaptive_images_generic-tablet/public/product-images/baby-crema-peinar-hidratacion-intensa.png"
+        }
+    ]
+}

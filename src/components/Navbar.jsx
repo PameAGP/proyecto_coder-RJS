@@ -1,6 +1,7 @@
 
 import {CartWidget } from "./CartWidget"
 
+import { NavLink } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -12,7 +13,7 @@ export const NavBar = () => {
   return (
     <Navbar expand="lg" data-bs-theme="dark" className="container-fluid bg-body-tertiary">
     <Container>
-      <Navbar.Brand href="#">Pelu Peluquería</Navbar.Brand>
+      <Navbar.Brand href="/">Pelu Peluquería</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav
@@ -20,10 +21,10 @@ export const NavBar = () => {
           style={{ maxHeight: '500px' }}
           navbarScroll
         >
-          <Nav.Link href="#action1">Inicio</Nav.Link>
-          <Nav.Link href="#action2">Damas</Nav.Link>
-          <Nav.Link href="#action2">Cabelleros</Nav.Link>
-          <Nav.Link href="#action2">Niños</Nav.Link>
+          <NavLink className="nav-link" to="/">Inicio</NavLink>
+          <NavLink className="nav-link" to="category/mujer">Damas</NavLink>
+          <NavLink className="nav-link" to="category/hombre">Caballeros</NavLink>
+          <NavLink className="nav-link" to="category/nino">Niños</NavLink>
           <NavDropdown title="Usuario" id="navbarScrollingDropdown">
             <NavDropdown.Item href="#action3">Inicio de Sesión</NavDropdown.Item>
             <NavDropdown.Item href="#action4">
