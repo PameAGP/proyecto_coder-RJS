@@ -43,6 +43,9 @@
   max-width: 100%;
 }
 
+.product-detail p {
+  text-align: left;
+}
 
 @media (min-width: 768px){
 

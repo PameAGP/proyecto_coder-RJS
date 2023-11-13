@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 export const ItemList = ({ items }) => {
   return (
     <Container className="fluid-md">
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-center">
         {items.map((item) => (
           <Item key={item.id} item={item} />
         ))}
