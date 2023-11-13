@@ -24,6 +24,23 @@
   padding-top: 10%;
 }
 
+/* .card {
+  justify-content: space-between;
+} */
+
+.card-img-top{
+  max-width: 264px;
+  max-height: 280px;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
 @media (min-width: 768px){
 
   .card-animation {
@@ -49,11 +66,20 @@ height: 168px;
   }
 
   .product-detail {
+    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
+  .product-detail p {
+    max-height: 190px;
+    overflow:auto;
+  }
+
+
   .product-detail img {
+    align-self: center;
+    justify-self: center;
     grid-row: span 4;
     height: 65vh;
   }
