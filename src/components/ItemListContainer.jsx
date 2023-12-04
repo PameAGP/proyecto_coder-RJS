@@ -1,39 +1,85 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useDebugValue, useEffect, useState, useContext } from "react";
 import Container from "react-bootstrap/Container";
 
-import { products } from "../data/products.json";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 
 import { ItemList } from "./itemList";
 
 export const ItemListContainer = (props) => {
   const [items, setItems] = useState([]);
 
+
   const { id } = useParams();
 
+  //Trae uno sola:
+  // useEffect(() => {
+
+  //   const dataBase = getFirestore();
+
+  //   const refDoc = doc(dataBase, "items", "EAWYiZJBdKLThAbobf4S");
+
+  //   getDoc (refDoc).then((snapshot) => {
+  //     console.log({id: snapshot.id, ...snapshot.data() });
+  //   });
+
+  // }, []);
+
+  //Trae TODES
   useEffect(() => {
-    const myPromise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    });
+    const dataBase = getFirestore();
 
-    myPromise.then((response) => {
-      if (!id) {
-        setItems(response);
-      } else {
-         const filterByCategory = response.filter((item) => item.category === id);
-         setItems(filterByCategory)
-      }
-    });
+    const refCollection = !id
+      ? collection(dataBase, "items")
+      : query(collection(dataBase, "items"), where("category", "==", id));
 
-    console.log(items);
+    getDocs(refCollection).then((snapshot) => {
+      if (snapshot.size === 0) console.log("Sin resultados");
+      else
+        setItems(
+          snapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
+    });
   }, [id]);
+
+  //Por categoría
+  //   useEffect(() => {
+  //   const dataBase = getFirestore();
+  //   const qry = query(
+  //     collection(dataBase, "items"),
+  //     where("category", "==", "mujer")
+  //   );
+  //   getDocs(qry).then((snapshot) => {
+  //     if (snapshot.size === 0) console.log("Sin resultados");
+  //     else
+  //     console.log(
+  //       snapshot.docs.map((doc) => {
+  //         return { id: doc.id, ...doc.data() };
+  //       })
+  //       );
+  //     });
+  // }, []);
+
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(collection);
+    }, 2000);
+  });
 
   return (
     <Container className="backgrownd-color">
-      <h1>{props.greeting}</h1>
-   
+      <h1>
+        {props.greeting}
+      </h1>
+
       <ItemList items={items} />
     </Container>
   );
