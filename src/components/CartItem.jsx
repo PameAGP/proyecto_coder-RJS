@@ -22,7 +22,7 @@ export const CartItem = ({item}) => {
         <button onClick={() => handleIncrease(item.id)} className='btn btn-primary bg-black'>+</button>
         </div>
         
-        <h5>Valor unitario: $ {item.price}</h5>
+        <p>Valor unitario: $ {item.price}</p>
         <h4>Precio: $ {item.quantity * item.price}</h4>
         <Button onClick={handleRemove} className="bg-black" variant="primary">Quitar</Button>
       </Card.Body>

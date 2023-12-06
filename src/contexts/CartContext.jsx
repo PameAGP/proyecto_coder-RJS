@@ -7,58 +7,73 @@ export const CartProvider = ({ children }) => {
 
   const clear = () => setItems([]);
 
-
   const handleIncrease = (itemId) => {
     setItems((prevItems) => {
-        return prevItems.map((item) => {
-            if (item.id === itemId) {
-                return {...item, quantity: item.quantity + 1};
-            }
-            return item;
-        });
+      return prevItems.map((item) => {
+        if (item.id === itemId && item.stock > item.quantity) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
     });
-};
+  };
 
-const handleDecrease = (itemId) => {
+  const handleDecrease = (itemId) => {
     setItems((prevItems) => {
-        return prevItems.map((item) => {
-            if (item.id === itemId && item.quantity > 1) {
-                return {...item, quantity: item.quantity - 1};
-            }
-            return item;
-        });
+      return prevItems.map((item) => {
+        if (item.id === itemId && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
     });
-};
+  };
 
   const removeItem = (itemId) => {
     const updatedItems = items.filter((item) => item.id !== itemId);
     setItems(updatedItems);
   };
 
-  const onAdd = (item, quantity) => {
+    const onAdd = (item, quantity) => {
+    
     const existe = items.some((i) => i.id === item.id);
+
+    
     if (existe) {
-      const updateItems = items.map((i) => {
-        if (i.id === item.id) {
-          return {
-            ...i,
-            quantity: i.quantity + quantity,
-          };
-        } else {
-          return i;
+        const updateItems = items.map((i) => {
+          if (i.id === item.id) {
+            const newQuantity = i.quantity + quantity;
+            
+            if (newQuantity <= item.stock){
+              return { ...i, quantity: newQuantity };
+            }
+          } return i;
+          
+        });
+        setItems(updateItems);
+      } else {
+        if (quantity <= item.stock){
+           setItems((prev) => {
+          return [...prev, { ...item, quantity }];
+        });
         }
-      });
-      setItems(updateItems);
-    } else {
-      setItems((prev) => {
-        return [...prev, { ...item, quantity }];
-      });
-    }
-    console.log(items);
+       
+      }
+
+  
   };
 
   return (
-    <CartContext.Provider value={{ items, clear, onAdd, removeItem, handleIncrease, handleDecrease}}>
+    <CartContext.Provider
+      value={{
+        items,
+        clear,
+        onAdd,
+        removeItem,
+        handleIncrease,
+        handleDecrease,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

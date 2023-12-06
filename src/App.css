@@ -17,16 +17,12 @@
 }
 
 .backgrownd-color{
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(210, 210, 210);
 }
 
 .padding-superior{
   padding-top: 10%;
 }
-
-/* .card {
-  justify-content: space-between;
-} */
 
 .card-img-top{
   max-width: 264px;
@@ -38,10 +34,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-/* .aumentar-reducir input{
-  margin-left: 5%;
-  margin-right: 5%;
-} */
+.card-body p {
+  height: 2rem;
+  font-size: 1.4rem;
+}
 .aumentar-reducir {
   height: 2rem;
 }
@@ -61,6 +57,10 @@ width: 100%;
 .aumentar-reducir-2{
   display: flex;
   justify-content: space-evenly;
+}
+
+.sin-elementos {
+  margin-top: 6%;
 }
 
 @media (min-width: 768px){
@@ -126,6 +126,19 @@ height: 168px;
 
   .agregar-al-carrito {
     grid-column: span 3;
+  }
+
+  .compra-formulario {
+    margin: 5%;
+  }
+
+  .vaciar-carro-total{
+    margin: 4%;
+  }
+
+  .vaciar-carro-total button{
+    width: 50vh;
+    margin: 2%;
   }
 
 }

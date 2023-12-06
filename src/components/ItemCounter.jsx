@@ -29,6 +29,12 @@ const handleInputChange = (event) => {
   setCount(parseInt(event.target.value, stock) || 0);
 };
 
+const handleAdd = () => {
+  
+  onAdd (count)
+  setCount (initial);
+}
+
   return (
 
         <Form className="aumentar-reducir">
@@ -39,7 +45,7 @@ const handleInputChange = (event) => {
       <Button onClick={handleIncrease} className="bg-black" variant="primary" >
         +
       </Button>
-      <Button onClick={() => onAdd (count)} className="bg-black agregar-al-carrito" variant="primary"> Agregar al Carrito</Button>
+      <Button onClick={handleAdd} className="bg-black agregar-al-carrito" variant="primary"> Agregar al Carrito</Button>
     </Form>
 
 

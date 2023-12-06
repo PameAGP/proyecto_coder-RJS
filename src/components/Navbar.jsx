@@ -25,23 +25,8 @@ export const NavBar = () => {
           <NavLink className="nav-link" to="category/mujer">Damas</NavLink>
           <NavLink className="nav-link" to="category/hombre">Caballeros</NavLink>
           <NavLink className="nav-link" to="category/nino">Niños</NavLink>
-          <NavDropdown title="Usuario" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#action3">Inicio de Sesión</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">
-              Registro
-            </NavDropdown.Item>
-            <NavDropdown.Divider />
-          </NavDropdown>
         </Nav>
-        <Form className="d-flex">
-          <Form.Control
-            type="search"
-            placeholder="Buscar"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Busqueda</Button>
-        </Form>
+        
       </Navbar.Collapse>
       <Nav>
       <CartWidget/>
