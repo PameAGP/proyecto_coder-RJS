@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 
@@ -33,6 +34,14 @@ const handleAdd = () => {
   
   onAdd (count)
   setCount (initial);
+
+  Swal.fire({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    background: '#191919'
+  });
 }
 
   return (

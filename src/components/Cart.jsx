@@ -93,7 +93,7 @@ export const Cart = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Su orden: " +id+ "ha sido enviada con éxito",
+          title: "Su orden: " +id+ " ha sido enviada con éxito",
           showConfirmButton: true,
           background: "#191919",
           confirmButtonColor: "#000000"
