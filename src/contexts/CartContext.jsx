@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext();
 
@@ -34,33 +35,31 @@ export const CartProvider = ({ children }) => {
     setItems(updatedItems);
   };
 
-    const onAdd = (item, quantity) => {
-    
+  const onAdd = (item, quantity) => {
     const existe = items.some((i) => i.id === item.id);
 
-    
     if (existe) {
-        const updateItems = items.map((i) => {
-          if (i.id === item.id) {
-            const newQuantity = i.quantity + quantity;
+      const updateItems = items.map((i) => {
+        if (i.id === item.id) {
+          const newQuantity = i.quantity + quantity;
+
+          if (newQuantity <= item.stock) {
+            return { ...i, quantity: newQuantity };
             
-            if (newQuantity <= item.stock){
-              return { ...i, quantity: newQuantity };
-            }
-          } return i;
-          
-        });
-        setItems(updateItems);
-      } else {
-        if (quantity <= item.stock){
-           setItems((prev) => {
+          }
+        }
+        return i;
+      });
+      setItems(updateItems);
+    } else {
+      if (quantity <= item.stock) {
+        setItems((prev) => {
           return [...prev, { ...item, quantity }];
         });
-        }
-       
       }
+    }
+ 
 
-  
   };
 
   return (
@@ -78,3 +77,11 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+// Swal.fire({
+//   position: "top-end",
+//   icon: "success",
+//   text: "Se agregó: " +item.title+ " al carrito" ,
+//   background: "#191919",
+//   confirmButtonColor: "#000000",
+// });

@@ -34,13 +34,13 @@ const handleAdd = () => {
   
   onAdd (count)
   setCount (initial);
-
+  
   Swal.fire({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    background: '#191919'
+    position: "top-end",
+    icon: "success",
+    text: "Se agregó: " +item.title+ " al carrito" ,
+    background: "#191919",
+    confirmButtonColor: "#000000",
   });
 }
 

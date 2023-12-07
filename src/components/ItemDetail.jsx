@@ -1,6 +1,5 @@
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+
 import { ItemCounter } from "./ItemCounter";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
@@ -10,6 +9,14 @@ export const ItemDetail = ({ item }) => {
 
   const add = (quantity) => {
     onAdd(item, quantity);
+    
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      text: "Se agregó: " +item.title+ " al carrito" ,
+      background: "#191919",
+      confirmButtonColor: "#000000",
+    });
   };
 
   return (
@@ -29,12 +36,3 @@ export const ItemDetail = ({ item }) => {
   );
 };
 
-{
-  /* <Form className="aumentar-reducir d-flex">
-        <Button className="bg-black" variant="primary">-</Button>
-          <Form.Control
-            placeholder="1"
-          />
-          <Button className="bg-black" variant="primary">+</Button>
-        </Form> */
-}

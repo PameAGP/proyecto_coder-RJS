@@ -6,8 +6,6 @@ import {
   getDoc,
   doc
 } from "firebase/firestore";
-
-
 import { ItemDetail } from "./ItemDetail";
 
 
