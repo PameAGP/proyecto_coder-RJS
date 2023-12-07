@@ -10,13 +10,6 @@ export const ItemDetail = ({ item }) => {
   const add = (quantity) => {
     onAdd(item, quantity);
     
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      text: "Se agregó: " +item.title+ " al carrito" ,
-      background: "#191919",
-      confirmButtonColor: "#000000",
-    });
   };
 
   return (

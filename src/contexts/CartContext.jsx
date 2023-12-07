@@ -44,22 +44,36 @@ export const CartProvider = ({ children }) => {
           const newQuantity = i.quantity + quantity;
 
           if (newQuantity <= item.stock) {
+            SweetAlert(
+              "success",
+              "Se agregó: " + quantity + " " + item.title + " al carrito"
+            );
+
             return { ...i, quantity: newQuantity };
-            
           }
+
+          SweetAlert(
+            "error",
+            "Sin Stock, no se puede agregar la cantidad especificada de " +
+              item.title +
+              " al carrito. Cantidad en carrito: " +i.quantity+ " Stock: " +item.stock
+          );
         }
         return i;
       });
       setItems(updateItems);
     } else {
       if (quantity <= item.stock) {
+        SweetAlert(
+          "success",
+          "Se agregó: " + quantity + " " + item.title + " al carrito"
+        );
+
         setItems((prev) => {
           return [...prev, { ...item, quantity }];
         });
       }
     }
- 
-
   };
 
   return (
@@ -78,10 +92,13 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Swal.fire({
-//   position: "top-end",
-//   icon: "success",
-//   text: "Se agregó: " +item.title+ " al carrito" ,
-//   background: "#191919",
-//   confirmButtonColor: "#000000",
-// });
+const SweetAlert = (icono, mensaje) => {
+  Swal.fire({
+    position: "top-end",
+    icon: icono,
+    text: mensaje,
+    color: "#ffffff",
+    background: "#191919",
+    confirmButtonColor: "#000000",
+  });
+};

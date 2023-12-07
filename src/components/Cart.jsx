@@ -61,22 +61,13 @@ export const Cart = () => {
     const emailComprobar = buyer.email;
     
     if (emailComprobar !=repeatEmail) {
-      Swal.fire({
-        icon: "error",
-        title: "Error en email",
-        text: "Los campos no coinciden",
-        background: "#191919",
-        confirmButtonColor: "#000000"
-      });
+      SweetAlert ("error", "Error en email", "Los campos no coinciden")
+      
       return;
     } else if (!buyer.email || !repeatEmail || !buyer.phone || !buyer.name){
-      Swal.fire({
-        icon: "error",
-        title: "Campos vacíos",
-        text: "Imposible finalizar compra",
-        background: "#191919",
-        confirmButtonColor: "#000000"
-      });
+      
+      SweetAlert ("error", "Campos vacíos", "Imposible finalizar compra")
+
       return;
     }
     const order = {
@@ -90,14 +81,7 @@ export const Cart = () => {
 
     addDoc(orderCollection, order).then(({ id }) => {
       if (id) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Su orden: " +id+ " ha sido enviada con éxito",
-          showConfirmButton: true,
-          background: "#191919",
-          confirmButtonColor: "#000000"
-        });
+        SweetAlert("Success", "Su orden: " +id+ " ha sido enviada con éxito")
         setBuyer(initialValues);
         document.getElementById("repeatEmail").value = "";
         clear();
@@ -163,4 +147,16 @@ export const Cart = () => {
       </Form>
     </Container>
   );
+};
+
+const SweetAlert = (icono, titulo,  mensaje) => {
+  Swal.fire({
+    position: "center",
+    icon: icono,
+    title: titulo,
+    text: mensaje,
+    color: "#ffffff",
+    background: "#191919",
+    confirmButtonColor: "#000000",
+  });
 };

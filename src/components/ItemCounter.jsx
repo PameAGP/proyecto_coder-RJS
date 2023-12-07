@@ -2,7 +2,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 
 
@@ -35,13 +34,6 @@ const handleAdd = () => {
   onAdd (count)
   setCount (initial);
   
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    text: "Se agregó: " +item.title+ " al carrito" ,
-    background: "#191919",
-    confirmButtonColor: "#000000",
-  });
 }
 
   return (
